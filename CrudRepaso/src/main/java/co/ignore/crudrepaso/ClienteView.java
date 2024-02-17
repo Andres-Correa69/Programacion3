@@ -1,12 +1,17 @@
 package co.ignore.crudrepaso;
 
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
-import javafx.scene.control.Label;
+import javafx.scene.control.DatePicker;
+import javafx.scene.control.MenuButton;
+import javafx.scene.control.MenuItem;
 import javafx.scene.control.TextField;
 
 public class ClienteView {
 
+    @FXML
+    private MenuItem InPerEnva;
 
     @FXML
     private Button addCliente;
@@ -48,6 +53,9 @@ public class ClienteView {
     private TextField inApellido;
 
     @FXML
+    private MenuItem inArgEnva;
+
+    @FXML
     private TextField inCantEnva;
 
     @FXML
@@ -55,6 +63,12 @@ public class ClienteView {
 
     @FXML
     private TextField inCantRefri;
+
+    @FXML
+    private MenuItem inCedula;
+
+    @FXML
+    private MenuItem inChiEnva;
 
     @FXML
     private TextField inCodAproRefri;
@@ -67,6 +81,9 @@ public class ClienteView {
 
     @FXML
     private TextField inCodRefri;
+
+    @FXML
+    private MenuItem inColEnva;
 
     @FXML
     private TextField inDesEnva;
@@ -84,16 +101,22 @@ public class ClienteView {
     private TextField inDocumento;
 
     @FXML
+    private MenuItem inEcuEnva;
+
+    @FXML
     private TextField inEmail;
 
     @FXML
-    private TextField inFechaEnva;
+    private DatePicker inFechaEnva;
 
     @FXML
-    private TextField inFechaNacimiento;
+    private DatePicker inFechaNacimiento;
 
     @FXML
-    private TextField inFechaVenPere;
+    private DatePicker inFechaVenPere;
+
+    @FXML
+    private MenuItem inNit;
 
     @FXML
     private TextField inNomEnva;
@@ -108,6 +131,9 @@ public class ClienteView {
     private TextField inNombre;
 
     @FXML
+    private MenuButton inPaisEnva;
+
+    @FXML
     private TextField inPesoEnva;
 
     @FXML
@@ -117,6 +143,9 @@ public class ClienteView {
     private TextField inTempRefri;
 
     @FXML
+    private MenuButton inTipoDoc;
+
+    @FXML
     private TextField inValEnva;
 
     @FXML
@@ -124,4 +153,40 @@ public class ClienteView {
 
     @FXML
     private TextField inValRefri;
+
+    @FXML
+    void asignarArgentina(ActionEvent event) {
+
+    }
+
+    @FXML
+    void asignarCedula(ActionEvent event) {
+
+    }
+
+    @FXML
+    void asignarChile(ActionEvent event) {
+
+    }
+
+    @FXML
+    void asignarColombia(ActionEvent event) {
+
+    }
+
+    @FXML
+    void asignarEcuador(ActionEvent event) {
+
+    }
+
+    @FXML
+    void asignarNit(ActionEvent event) {
+
+    }
+
+    @FXML
+    void asignarPeru(ActionEvent event) {
+
+    }
+
 }

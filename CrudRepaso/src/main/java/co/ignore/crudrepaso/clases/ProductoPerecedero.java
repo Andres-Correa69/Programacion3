@@ -1,24 +1,25 @@
 package co.ignore.crudrepaso.clases;
 
+import java.time.LocalDate;
 import java.util.Date;
 
 public class ProductoPerecedero extends Producto{
 
     //declaracion variables
-    private Date fechaVencimiento;
+    private LocalDate fechaVencimiento;
 
     //metodo constructor con sper class de producto
-    public ProductoPerecedero(String codigo, String nombre, String descripcion, Integer valorUnitario, Integer cantExistente, Date fechaVencimiento) {
+    public ProductoPerecedero(String codigo, String nombre, String descripcion, Integer valorUnitario, Integer cantExistente, LocalDate fechaVencimiento) {
         super(codigo, nombre, descripcion, valorUnitario, cantExistente);
         this.fechaVencimiento = fechaVencimiento;
     }
 
     //getter y setters
-    public Date getFechaVencimiento() {
+    public LocalDate getFechaVencimiento() {
         return fechaVencimiento;
     }
 
-    public void setFechaVencimiento(Date fechaVencimiento) {
+    public void setFechaVencimiento(LocalDate fechaVencimiento) {
         this.fechaVencimiento = fechaVencimiento;
     }
 }

@@ -1,18 +1,19 @@
 package co.ignore.crudrepaso.clases;
 
+import java.time.LocalDate;
 import java.util.Date;
 
 public class ProductoEnvasado extends Producto{
 
     //declaracion de variables
-    private Date fechaEnvasado;
+    private LocalDate fechaEnvasado;
     private Integer peso;
 
     private PaisOrigen pais;
 
     //metodo constructor con super class de producto
 
-    public ProductoEnvasado(String codigo, String nombre, String descripcion, Integer valorUnitario, Integer cantExistente, Date fechaEnvasado, Integer peso) {
+    public ProductoEnvasado(String codigo, String nombre, String descripcion, Integer valorUnitario, Integer cantExistente, LocalDate fechaEnvasado, Integer peso) {
         super(codigo, nombre, descripcion, valorUnitario, cantExistente);
         this.fechaEnvasado = fechaEnvasado;
         this.peso = peso;
@@ -21,11 +22,11 @@ public class ProductoEnvasado extends Producto{
 
     //getter y setters
 
-    public Date getFechaEnvasado() {
+    public LocalDate getFechaEnvasado() {
         return fechaEnvasado;
     }
 
-    public void setFechaEnvasado(Date fechaEnvasado) {
+    public void setFechaEnvasado(LocalDate fechaEnvasado) {
         this.fechaEnvasado = fechaEnvasado;
     }
 
