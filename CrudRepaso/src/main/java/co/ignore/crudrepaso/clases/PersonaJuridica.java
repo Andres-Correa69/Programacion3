@@ -10,7 +10,7 @@ public class PersonaJuridica extends Cliente{
         super(nombre, apellido, identificacion, direccion, telefono);
         this.nit = nit;
     }
-
+    
     //getter y setter
     public String getNit() {
         return nit;

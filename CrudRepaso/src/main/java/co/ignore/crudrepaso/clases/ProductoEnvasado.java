@@ -16,7 +16,7 @@ public class ProductoEnvasado extends Producto{
         super(codigo, nombre, descripcion, valorUnitario, cantExistente);
         this.fechaEnvasado = fechaEnvasado;
         this.peso = peso;
-        this.pais = getPais();
+        this.pais = pais.COLOMBIA;
     }
 
     //getter y setters
