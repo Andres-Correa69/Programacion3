@@ -108,7 +108,7 @@ public class Producto {
     public void setFechaVencimiento(LocalDate fechaVencimiento) {
         this.fechaVencimiento = fechaVencimiento;
     }
-    
+
     public String getCodigoAprovacion() {
         return codigoAprovacion;
     }
