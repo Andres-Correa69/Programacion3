@@ -18,7 +18,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<SplitPane dividerPositions="0.26490173785934706" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="703.0" prefWidth="1233.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="co.ignore.crudrepaso.ClienteView">
+<SplitPane dividerPositions="0.26490173785934706" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="703.0" prefWidth="1233.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="co.ignore.crudrepaso.controller.ClienteView">
   <items>
       <TabPane prefHeight="633.0" prefWidth="310.0" tabClosingPolicy="UNAVAILABLE">
         <tabs>
@@ -59,18 +59,18 @@
                                  </font>
                               </Label>
                               <TextField fx:id="inApellido" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-                              <Label prefHeight="18.0" prefWidth="150.0" text="Tipo documento:" GridPane.rowIndex="2">
+                              <Label prefHeight="18.0" prefWidth="150.0" text="Tipo persona:" GridPane.rowIndex="2">
                                  <font>
                                     <Font name="SansSerif Regular" size="12.0" />
                                  </font>
                               </Label>
                               <MenuButton fx:id="inTipoDoc" mnemonicParsing="false" prefHeight="26.0" prefWidth="138.0" text="Seleccione" GridPane.columnIndex="1" GridPane.rowIndex="2">
                                 <items>
-                                  <MenuItem fx:id="inNit" mnemonicParsing="false" onAction="#asignarNit" text="Nit" />
-                                  <MenuItem fx:id="inCedula" mnemonicParsing="false" onAction="#asignarCedula" text="Cedula" />
+                                  <MenuItem fx:id="inJuridica" mnemonicParsing="false" onAction="#asignarNit" text="Juridica" />
+                                  <MenuItem fx:id="inNatural" mnemonicParsing="false" onAction="#asignarCedula" text="Natural" />
                                 </items>
                               </MenuButton>
-                              <Label prefHeight="18.0" prefWidth="150.0" text="Numero de documento:" GridPane.rowIndex="3">
+                              <Label prefHeight="18.0" prefWidth="150.0" text="Numero Identificacion:" GridPane.rowIndex="3">
                                  <font>
                                     <Font name="SansSerif Regular" size="12.0" />
                                  </font>
@@ -113,12 +113,12 @@
                               <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                           </rowConstraints>
                            <children>
-                              <Button fx:id="addCliente" mnemonicParsing="false" prefHeight="56.0" prefWidth="83.0" text="Agregar" GridPane.rowIndex="1">
+                              <Button fx:id="addCliente" mnemonicParsing="false" onAction="#agregarCliente" prefHeight="56.0" prefWidth="83.0" text="Agregar" GridPane.rowIndex="1">
                                  <font>
                                     <Font name="SansSerif Regular" size="12.0" />
                                  </font>
                               </Button>
-                              <Button fx:id="deleteCliente" mnemonicParsing="false" prefHeight="55.0" prefWidth="84.0" text="Eliminar" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                              <Button fx:id="deleteCliente" mnemonicParsing="false" prefHeight="101.0" prefWidth="146.0" text="Eliminar" GridPane.columnIndex="1" GridPane.rowIndex="1">
                                  <font>
                                     <Font name="SansSerif Regular" size="12.0" />
                                  </font>
@@ -433,16 +433,16 @@
               <items>
                 <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0">
                      <children>
-                        <TableView layoutX="-4.0" layoutY="39.0" prefHeight="307.0" prefWidth="902.0">
+                        <TableView fx:id="tableCliente" layoutX="-4.0" layoutY="39.0" prefHeight="307.0" prefWidth="902.0">
                           <columns>
-                            <TableColumn prefWidth="100.80001664161682" text="Nombre" />
-                            <TableColumn prefWidth="89.5999984741211" text="Apellidos" />
-                              <TableColumn minWidth="0.0" prefWidth="107.19996643066406" text="Tipo Documento" />
-                              <TableColumn prefWidth="123.20001220703125" text="Numero Documento" />
-                              <TableColumn prefWidth="93.60000610351562" text="Direccion" />
-                              <TableColumn prefWidth="72.79998779296875" text="Telefono" />
-                              <TableColumn prefWidth="116.0" text="Fecha Nacimiento" />
-                              <TableColumn prefWidth="207.99993896484375" text="Email" />
+                            <TableColumn fx:id="inNombreTable" prefWidth="100.80001664161682" text="Nombre" />
+                            <TableColumn fx:id="inApellidoTable" prefWidth="89.5999984741211" text="Apellidos" />
+                              <TableColumn fx:id="inTipoPersonaTable" minWidth="0.0" prefWidth="107.19996643066406" text="Tipo Persona" />
+                              <TableColumn prefWidth="132.800048828125" text="Numero Identificacion" />
+                              <TableColumn prefWidth="98.39999389648438" text="Direccion" />
+                              <TableColumn prefWidth="74.39996337890625" text="Telefono" />
+                              <TableColumn prefWidth="112.0" text="Fecha Nacimiento" />
+                              <TableColumn prefWidth="199.199951171875" text="Email" />
                           </columns>
                         </TableView>
                         <Text layoutX="399.0" layoutY="27.0" strokeType="INSIDE" strokeWidth="0.0" text="CLIENTE" textAlignment="CENTER" wrappingWidth="102.2249755859375">

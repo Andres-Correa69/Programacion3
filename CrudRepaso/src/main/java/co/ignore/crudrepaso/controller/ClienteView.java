@@ -1,12 +1,12 @@
-package co.ignore.crudrepaso;
+package co.ignore.crudrepaso.controller;
 
+import co.ignore.crudrepaso.clases.Cliente;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.scene.control.Button;
-import javafx.scene.control.DatePicker;
-import javafx.scene.control.MenuButton;
-import javafx.scene.control.MenuItem;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
+import javafx.scene.control.cell.PropertyValueFactory;
+
+import java.time.LocalDate;
 
 public class ClienteView {
 
@@ -53,6 +53,9 @@ public class ClienteView {
     private TextField inApellido;
 
     @FXML
+    private TableColumn<Cliente, String> inApellidoTable;
+
+    @FXML
     private MenuItem inArgEnva;
 
     @FXML
@@ -63,9 +66,6 @@ public class ClienteView {
 
     @FXML
     private TextField inCantRefri;
-
-    @FXML
-    private MenuItem inCedula;
 
     @FXML
     private MenuItem inChiEnva;
@@ -116,7 +116,10 @@ public class ClienteView {
     private DatePicker inFechaVenPere;
 
     @FXML
-    private MenuItem inNit;
+    private MenuItem inJuridica;
+
+    @FXML
+    private MenuItem inNatural;
 
     @FXML
     private TextField inNomEnva;
@@ -129,6 +132,9 @@ public class ClienteView {
 
     @FXML
     private TextField inNombre;
+
+    @FXML
+    private TableColumn<Cliente, String> inNombreTable;
 
     @FXML
     private MenuButton inPaisEnva;
@@ -146,6 +152,9 @@ public class ClienteView {
     private MenuButton inTipoDoc;
 
     @FXML
+    private TableColumn<Cliente, String> inTipoPersonaTable;
+
+    @FXML
     private TextField inValEnva;
 
     @FXML
@@ -155,13 +164,20 @@ public class ClienteView {
     private TextField inValRefri;
 
     @FXML
+    private TableView<Cliente> tableCliente;
+
+    @FXML
     void asignarArgentina(ActionEvent event) {
 
     }
 
     @FXML
     void asignarCedula(ActionEvent event) {
-
+        if (inNatural.getText().equals("Natural")) {
+            inTipoDoc.setText("Natural");
+            inEmail.setDisable(false);
+            inFechaNacimiento.setDisable(false);
+        }
     }
 
     @FXML
@@ -181,12 +197,37 @@ public class ClienteView {
 
     @FXML
     void asignarNit(ActionEvent event) {
+        //desabilitar infenacimiento, inemail
+        System.out.println(inJuridica.getText());
+
+        if ( inJuridica.getText().equals("Juridica")){
+            inTipoDoc.setText("Juridica");
+            inEmail.setDisable(true);
+            inFechaNacimiento.setDisable(true);
+        }
+
 
     }
+
 
     @FXML
     void asignarPeru(ActionEvent event) {
 
     }
+
+    @FXML
+    void agregarCliente(ActionEvent event) {
+
+        Cliente cliente = new Cliente(inNombre.getText() , inApellido.getText(), inDocumento.getText(), inDireccion.getText(), inTelefono.getText(), "wdawd", LocalDate.of(24,01,21), "43432", inTipoDoc.getText());
+        inNombreTable.setCellValueFactory(new PropertyValueFactory<Cliente, String>("nombre"));
+        inApellidoTable.setCellValueFactory(new PropertyValueFactory<Cliente, String>("apellido"));
+        inTipoPersonaTable.setCellValueFactory(new PropertyValueFactory<Cliente, String>("tipoCliente"));
+        tableCliente.getItems().addAll(cliente);
+
+
+
+
+    }
+
 
 }
