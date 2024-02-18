@@ -7,8 +7,8 @@ public class ProductoRefrigerado extends Producto {
     private String temperaturaRefrigeracion;
 
     //meetodo constructor con super class de producto
-    public ProductoRefrigerado(String codigo, String nombre, String descripcion, Integer valorUnitario, Integer cantExistente, String codigoAprovacion, String temperaturaRefrigeracion) {
-        super(codigo, nombre, descripcion, valorUnitario, cantExistente);
+    public ProductoRefrigerado(String codigo, String nombre, String descripcion, Integer valorUnitario, Integer cantExistente, String codigoAprovacion, String temperaturaRefrigeracion, String tipoProducto) {
+        super(codigo, nombre, descripcion, valorUnitario, cantExistente, tipoProducto);
         this.codigoAprovacion = codigoAprovacion;
         this.temperaturaRefrigeracion = temperaturaRefrigeracion;
     }

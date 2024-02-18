@@ -15,14 +15,12 @@ public class Cliente {
     private String telefono;
     private String email;
     private LocalDate fechaNacimiento;
-    private String nit;
-
     private  String tipoCliente;
 
     // Metodo constructor
 
 
-    public Cliente(String nombre, String apellido, String identificacion, String direccion, String telefono, String email, LocalDate fechaNacimiento, String nit, String tipoCliente) {
+    public Cliente(String nombre, String apellido, String identificacion, String direccion, String telefono, String email, LocalDate fechaNacimiento, String tipoCliente) {
         this.nombre = nombre;
         this.apellido = apellido;
         this.identificacion = identificacion;
@@ -30,7 +28,6 @@ public class Cliente {
         this.telefono = telefono;
         this.email = email;
         this.fechaNacimiento = fechaNacimiento;
-        this.nit = nit;
         this.tipoCliente = tipoCliente;
     }
 
@@ -100,11 +97,5 @@ public class Cliente {
         this.fechaNacimiento = fechaNacimiento;
     }
 
-    public String getNit() {
-        return nit;
-    }
 
-    public void setNit(String nit) {
-        this.nit = nit;
-    }
 }

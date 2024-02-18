@@ -1,6 +1,6 @@
 package co.ignore.crudrepaso.controller;
 
-import co.ignore.crudrepaso.clases.Cliente;
+import co.ignore.crudrepaso.clases.*;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
@@ -11,7 +11,7 @@ import java.time.LocalDate;
 public class ClienteView {
 
     @FXML
-    private MenuItem InPerEnva;
+    private MenuItem inCholosEnva;
 
     @FXML
     private Button addCliente;
@@ -167,8 +167,54 @@ public class ClienteView {
     private TableView<Cliente> tableCliente;
 
     @FXML
-    void asignarArgentina(ActionEvent event) {
+    private TableColumn<Cliente, String> inIdentificacionTable;
 
+    @FXML
+    private TableColumn<Cliente, String> inDireccionTable;
+
+    @FXML
+    private TableColumn<Cliente, String> inTelefonoTable;
+
+    @FXML
+    private TableColumn<Cliente, LocalDate> inFechaNaTable;
+    @FXML
+    private TableColumn<Cliente, String> inEmailTable;
+    @FXML
+    private TableView<TableProducto> tableProductoView;
+    @FXML
+    private TableColumn<TableProducto, String> inCodTable;
+    @FXML
+    private TableColumn<TableProducto, LocalDate> inFeVenPereTable;
+    @FXML
+    private TableColumn<TableProducto, String> inTipoProTable;
+    @FXML
+    private TableColumn<TableProducto, String> inNomProTable;
+    @FXML
+    private TableColumn<TableProducto, String> inDesProTable;
+    @FXML
+    private TableColumn<TableProducto, Integer> inValProTable;
+    @FXML
+    private TableColumn<TableProducto, Integer> inCantProTable;
+    @FXML
+    private TableColumn<TableProducto, String> inCodAprovProTable;
+    @FXML
+    private TableColumn<TableProducto, String> inTempRefriProTable;
+    @FXML
+    private TableColumn<TableProducto, LocalDate> inFeEnvaTable;
+    @FXML
+    private TableColumn<TableProducto, Integer> inPesoEnvaTable;
+    @FXML
+    private TableColumn<TableProducto, String> inPaisEnvaTable;
+
+
+    @FXML
+    void asignarArgentina(ActionEvent event) {
+        if (inArgEnva.getText().equals("Argentina")){
+            inPaisEnva.setText("Argentina");
+
+
+
+        }
     }
 
     @FXML
@@ -177,28 +223,38 @@ public class ClienteView {
             inTipoDoc.setText("Natural");
             inEmail.setDisable(false);
             inFechaNacimiento.setDisable(false);
+
         }
     }
 
     @FXML
     void asignarChile(ActionEvent event) {
+        if (inChiEnva.getText().equals("Chile")){
+            inPaisEnva.setText("Chile");
+        }
 
     }
 
     @FXML
     void asignarColombia(ActionEvent event) {
+        if (inColEnva.getText().equals("Colombia")){
+            inPaisEnva.setText("Colombia");
+        }
 
     }
 
     @FXML
     void asignarEcuador(ActionEvent event) {
+        if (inEcuEnva.getText().equals("Ecuador")){
+            inPaisEnva.setText("Ecuador");
+        }
 
     }
 
     @FXML
     void asignarNit(ActionEvent event) {
         //desabilitar infenacimiento, inemail
-        System.out.println(inJuridica.getText());
+
 
         if ( inJuridica.getText().equals("Juridica")){
             inTipoDoc.setText("Juridica");
@@ -211,23 +267,102 @@ public class ClienteView {
 
 
     @FXML
-    void asignarPeru(ActionEvent event) {
+    void asigPeru(ActionEvent event) {
+        if (inCholosEnva.getText().equals("Peru")){
+            inPaisEnva.setText("Peru");
+
+        }
+
 
     }
 
     @FXML
     void agregarCliente(ActionEvent event) {
 
-        Cliente cliente = new Cliente(inNombre.getText() , inApellido.getText(), inDocumento.getText(), inDireccion.getText(), inTelefono.getText(), "wdawd", LocalDate.of(24,01,21), "43432", inTipoDoc.getText());
+        Cliente cliente = new Cliente(inNombre.getText() , inApellido.getText(), inDocumento.getText(), inDireccion.getText(), inTelefono.getText(), inEmail.getText(), inFechaNacimiento.getValue(),  inTipoDoc.getText());
         inNombreTable.setCellValueFactory(new PropertyValueFactory<Cliente, String>("nombre"));
         inApellidoTable.setCellValueFactory(new PropertyValueFactory<Cliente, String>("apellido"));
         inTipoPersonaTable.setCellValueFactory(new PropertyValueFactory<Cliente, String>("tipoCliente"));
+        inIdentificacionTable.setCellValueFactory(new PropertyValueFactory<Cliente, String>("identificacion"));
+        inDireccionTable.setCellValueFactory(new PropertyValueFactory<Cliente, String>("direccion"));
+        inTelefonoTable.setCellValueFactory(new PropertyValueFactory<Cliente, String>("telefono"));
+        inFechaNaTable.setCellValueFactory(new PropertyValueFactory<Cliente, LocalDate>("fechaNacimiento"));
+        inEmailTable.setCellValueFactory(new PropertyValueFactory<Cliente, String>("email"));
         tableCliente.getItems().addAll(cliente);
+        inNombre.clear();
+        inApellido.clear();
+        inDocumento.clear();
+        inDireccion.clear();
+        inTelefono.clear();
+        inFechaNacimiento.setValue(null);
+        inEmail.clear();
+        inTipoDoc.setText("Seleccione");
+
+    }
+    @FXML
+    void agregarPere(ActionEvent event) {
 
 
+        TableProducto tableProducto = new TableProducto(inCodPere.getText(), inNomPere.getText(), inDesPere.getText(), Integer.parseInt(inValPere.getText()), Integer.parseInt(inCantPere.getText()), "Perecedero", LocalDate.of(2024,12,1), 2, "", inFechaVenPere.getValue(), "", "");
+        inCodTable.setCellValueFactory(new PropertyValueFactory<TableProducto, String>("codigo"));
+        inNomProTable.setCellValueFactory(new PropertyValueFactory<TableProducto, String>("nombre"));
+        inDesProTable.setCellValueFactory(new PropertyValueFactory<TableProducto, String>("descripcion"));
+        inValProTable.setCellValueFactory(new PropertyValueFactory<TableProducto, Integer>( "valorUnitario"));
+        inCantProTable.setCellValueFactory(new PropertyValueFactory<TableProducto, Integer>( "cantExistente"));
+        inFeVenPereTable.setCellValueFactory(new PropertyValueFactory<TableProducto, LocalDate>("fechaVencimiento"));
+        inTipoProTable.setCellValueFactory(new PropertyValueFactory<TableProducto, String>("tipoProducto"));
+        tableProductoView.getItems().addAll(tableProducto);
+        inCodPere.clear();
+        inNomPere.clear();
+        inDesPere.clear();
+        inValPere.clear();
+        inCantPere.clear();
+        inFechaVenPere.setValue(null);
+    }
 
+    @FXML
+    void agregarRefrigerado(ActionEvent event) {
+        TableProducto tableProducto = new TableProducto(inCodRefri.getText(), inNomRefri.getText(), inDesRefri.getText(), Integer.parseInt(inValRefri.getText()), Integer.parseInt(inCantRefri.getText()), "Refrigerados", LocalDate.of(2024,12,1), 2, "", inFechaVenPere.getValue(), inCodAproRefri.getText(), inTempRefri.getText());
+        inCodTable.setCellValueFactory(new PropertyValueFactory<TableProducto, String>("codigo"));
+        inNomProTable.setCellValueFactory(new PropertyValueFactory<TableProducto, String>("nombre"));
+        inDesProTable.setCellValueFactory(new PropertyValueFactory<TableProducto, String>("descripcion"));
+        inValProTable.setCellValueFactory(new PropertyValueFactory<TableProducto, Integer>( "valorUnitario"));
+        inCantProTable.setCellValueFactory(new PropertyValueFactory<TableProducto, Integer>( "cantExistente"));
+        inTipoProTable.setCellValueFactory(new PropertyValueFactory<TableProducto, String>("tipoProducto"));
+        inCodAprovProTable.setCellValueFactory(new PropertyValueFactory<TableProducto, String>("codigoAprovacion"));
+        inTempRefriProTable.setCellValueFactory(new PropertyValueFactory<TableProducto, String>("temperaturaRefrigeracion"));
+        tableProductoView.getItems().addAll(tableProducto);
+        inCodRefri.clear();
+        inNomRefri.clear();
+        inDesRefri.clear();
+        inValRefri.clear();
+        inCantRefri.clear();
+        inCodAproRefri.clear();
+        inTempRefri.clear();
 
     }
 
+    @FXML
+    void agregarEnvasados(ActionEvent event) {
+        TableProducto tableProducto = new TableProducto(inCodEnva.getText(), inNomEnva.getText(), inDesEnva.getText(), Integer.parseInt(inValEnva.getText()), Integer.parseInt(inCantEnva.getText()), "Envasados", inFechaEnva.getValue(), Integer.parseInt(inPesoEnva.getText()), inPaisEnva.getText(), inFechaVenPere.getValue(), inCodAproRefri.getText(), inTempRefri.getText());
+        inCodTable.setCellValueFactory(new PropertyValueFactory<TableProducto, String>("codigo"));
+        inNomProTable.setCellValueFactory(new PropertyValueFactory<TableProducto, String>("nombre"));
+        inDesProTable.setCellValueFactory(new PropertyValueFactory<TableProducto, String>("descripcion"));
+        inValProTable.setCellValueFactory(new PropertyValueFactory<TableProducto, Integer>( "valorUnitario"));
+        inCantProTable.setCellValueFactory(new PropertyValueFactory<TableProducto, Integer>( "cantExistente"));
+        inTipoProTable.setCellValueFactory(new PropertyValueFactory<TableProducto, String>("tipoProducto"));
+        inPesoEnvaTable.setCellValueFactory(new PropertyValueFactory<TableProducto, Integer>("peso"));
+        inFeEnvaTable.setCellValueFactory(new PropertyValueFactory<TableProducto, LocalDate>("fechaEnvasado"));
+        inPaisEnvaTable.setCellValueFactory(new PropertyValueFactory<TableProducto, String>("pais"));
+        tableProductoView.getItems().addAll(tableProducto);
+        //inCodEnva.clear();
+        //inNomEnva.clear();
+        //inDesEnva.clear();
+        //inValEnva.clear();
+        //inCantEnva.clear();
+        //inPesoEnva.clear();
+        //inFechaEnva.setValue(null);
+        //inPaisEnva.setText("Seleccione");
 
+    }
 }

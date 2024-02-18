@@ -18,7 +18,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<SplitPane dividerPositions="0.26490173785934706" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="703.0" prefWidth="1233.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="co.ignore.crudrepaso.controller.ClienteView">
+<SplitPane dividerPositions="0.2339268723664537" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="703.0" prefWidth="1443.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="co.ignore.crudrepaso.controller.ClienteView">
   <items>
       <TabPane prefHeight="633.0" prefWidth="310.0" tabClosingPolicy="UNAVAILABLE">
         <tabs>
@@ -202,7 +202,7 @@
                               <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                            </rowConstraints>
                            <children>
-                              <Button fx:id="addPere" mnemonicParsing="false" prefHeight="61.0" prefWidth="83.0" text="Agregar" GridPane.rowIndex="1">
+                              <Button fx:id="addPere" mnemonicParsing="false" onAction="#agregarPere" prefHeight="61.0" prefWidth="83.0" text="Agregar" GridPane.rowIndex="1">
                                  <font>
                                     <Font name="SansSerif Regular" size="12.0" />
                                  </font>
@@ -297,7 +297,7 @@
                               <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                            </rowConstraints>
                            <children>
-                              <Button fx:id="addRefri" mnemonicParsing="false" prefHeight="61.0" prefWidth="83.0" text="Agregar" GridPane.rowIndex="1">
+                              <Button fx:id="addRefri" mnemonicParsing="false" onAction="#agregarRefrigerado" prefHeight="61.0" prefWidth="83.0" text="Agregar" GridPane.rowIndex="1">
                                  <font>
                                     <Font name="SansSerif Regular" size="12.0" />
                                  </font>
@@ -378,7 +378,7 @@
                                 <items>
                                   <MenuItem fx:id="inChiEnva" mnemonicParsing="false" onAction="#asignarChile" text="Chile" />
                                   <MenuItem fx:id="inColEnva" mnemonicParsing="false" onAction="#asignarColombia" text="Colombia" />
-                                    <MenuItem fx:id="InPerEnva" mnemonicParsing="false" onAction="#asignarPeru" text="Peru" />
+                                    <MenuItem fx:id="inCholosEnva" mnemonicParsing="false" onAction="#asigPeru" text="Peru" />
                                     <MenuItem fx:id="inEcuEnva" mnemonicParsing="false" onAction="#asignarEcuador" text="Ecuador" />
                                     <MenuItem fx:id="inArgEnva" mnemonicParsing="false" onAction="#asignarArgentina" text="Argentina" />
                                 </items>
@@ -408,7 +408,7 @@
                               <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                            </rowConstraints>
                            <children>
-                              <Button fx:id="addEnva" mnemonicParsing="false" prefHeight="61.0" prefWidth="83.0" text="Agregar" GridPane.rowIndex="1">
+                              <Button fx:id="addEnva" mnemonicParsing="false" onAction="#agregarEnvasados" prefHeight="61.0" prefWidth="83.0" text="Agregar" GridPane.rowIndex="1">
                                  <font>
                                     <Font name="SansSerif Regular" size="12.0" />
                                  </font>
@@ -427,49 +427,50 @@
             </Tab>
         </tabs>
       </TabPane>
-    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="702.0" prefWidth="842.0">
+    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="702.0" prefWidth="1095.0">
          <children>
-            <SplitPane dividerPositions="0.5" layoutX="2.0" layoutY="1.0" orientation="VERTICAL" prefHeight="703.0" prefWidth="903.0">
+            <SplitPane dividerPositions="0.5" layoutX="2.0" layoutY="1.0" orientation="VERTICAL" prefHeight="703.0" prefWidth="1094.0">
               <items>
-                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0">
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="348.0" prefWidth="992.0">
                      <children>
-                        <TableView fx:id="tableCliente" layoutX="-4.0" layoutY="39.0" prefHeight="307.0" prefWidth="902.0">
+                        <TableView fx:id="tableCliente" layoutX="-4.0" layoutY="39.0" prefHeight="307.0" prefWidth="1087.0">
                           <columns>
                             <TableColumn fx:id="inNombreTable" prefWidth="100.80001664161682" text="Nombre" />
-                            <TableColumn fx:id="inApellidoTable" prefWidth="89.5999984741211" text="Apellidos" />
-                              <TableColumn fx:id="inTipoPersonaTable" minWidth="0.0" prefWidth="107.19996643066406" text="Tipo Persona" />
-                              <TableColumn prefWidth="132.800048828125" text="Numero Identificacion" />
-                              <TableColumn prefWidth="98.39999389648438" text="Direccion" />
-                              <TableColumn prefWidth="74.39996337890625" text="Telefono" />
-                              <TableColumn prefWidth="112.0" text="Fecha Nacimiento" />
-                              <TableColumn prefWidth="199.199951171875" text="Email" />
+                            <TableColumn fx:id="inApellidoTable" prefWidth="95.99996948242188" text="Apellidos" />
+                              <TableColumn fx:id="inTipoPersonaTable" minWidth="0.0" prefWidth="100.80006408691406" text="Tipo Persona" />
+                              <TableColumn fx:id="inIdentificacionTable" prefWidth="134.40008544921875" text="Numero Identificacion" />
+                              <TableColumn fx:id="inDireccionTable" prefWidth="179.199951171875" text="Direccion" />
+                              <TableColumn fx:id="inTelefonoTable" prefWidth="103.20001220703125" text="Telefono" />
+                              <TableColumn fx:id="inFechaNaTable" prefWidth="112.7999267578125" text="Fecha Nacimiento" />
+                              <TableColumn fx:id="inEmailTable" prefWidth="301.59979248046875" text="Email" />
                           </columns>
                         </TableView>
-                        <Text layoutX="399.0" layoutY="27.0" strokeType="INSIDE" strokeWidth="0.0" text="CLIENTE" textAlignment="CENTER" wrappingWidth="102.2249755859375">
+                        <Text layoutX="511.0" layoutY="29.0" strokeType="INSIDE" strokeWidth="0.0" text="CLIENTE" textAlignment="CENTER" wrappingWidth="102.2249755859375">
                            <font>
                               <Font name="Sans Serif Collection" size="18.0" />
                            </font>
                         </Text>
                      </children>
                   </AnchorPane>
-                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="350.0" prefWidth="582.0">
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="348.0" prefWidth="1097.0">
                      <children>
-                        <TableView layoutY="49.0" prefHeight="298.0" prefWidth="902.0">
+                        <TableView fx:id="tableProductoView" layoutY="49.0" prefHeight="298.0" prefWidth="1087.0">
                            <columns>
-                              <TableColumn prefWidth="75.0" text="Codigo" />
-                              <TableColumn prefWidth="75.0" text="Nombre" />
-                              <TableColumn prefWidth="75.0" text="Descripcion" />
-                              <TableColumn prefWidth="75.0" text="Valor " />
-                              <TableColumn prefWidth="93.60003662109375" text="Cant. Existente" />
-                              <TableColumn prefWidth="97.60009765625" text="F. Vencimiento" />
-                              <TableColumn prefWidth="99.20004272460938" text="Cod. Aprovacion" />
-                              <TableColumn prefWidth="92.0" text="T. Refrigerado" />
-                              <TableColumn prefWidth="71.20001220703125" text="Pais" />
-                              <TableColumn prefWidth="78.39990234375" text="F. envasado" />
-                              <TableColumn prefWidth="63.199951171875" text="Peso" />
+                              <TableColumn fx:id="inCodTable" prefWidth="75.0" text="Codigo" />
+                              <TableColumn fx:id="inNomProTable" prefWidth="75.0" text="Nombre" />
+                              <TableColumn fx:id="inTipoProTable" prefWidth="92.79998779296875" text="Tipo Producto" />
+                              <TableColumn fx:id="inDesProTable" prefWidth="108.00001525878906" text="Descripcion" />
+                              <TableColumn fx:id="inValProTable" prefWidth="66.39996337890625" text="Valor " />
+                              <TableColumn fx:id="inCantProTable" prefWidth="96.79998779296875" text="Cant. Existente" />
+                              <TableColumn fx:id="inFeVenPereTable" prefWidth="102.39996337890625" text="F. Vencimiento" />
+                              <TableColumn fx:id="inCodAprovProTable" prefWidth="100.79998779296875" text="Cod. Aprovacion" />
+                              <TableColumn fx:id="inTempRefriProTable" prefWidth="90.4000244140625" text="T. Refrigerado" />
+                              <TableColumn fx:id="inPaisEnvaTable" prefWidth="104.0" text="Pais" />
+                              <TableColumn fx:id="inFeEnvaTable" prefWidth="109.599853515625" text="F. envasado" />
+                              <TableColumn fx:id="inPesoEnvaTable" minWidth="5.5999755859375" prefWidth="63.9998779296875" text="Peso" />
                            </columns>
                         </TableView>
-                        <Text layoutX="399.0" layoutY="34.0" strokeType="INSIDE" strokeWidth="0.0" text="PRODUCTO" textAlignment="CENTER" wrappingWidth="102.2249755859375">
+                        <Text layoutX="511.0" layoutY="29.0" strokeType="INSIDE" strokeWidth="0.0" text="PRODUCTO" textAlignment="CENTER" wrappingWidth="102.2249755859375">
                            <font>
                               <Font name="Sans Serif Collection" size="18.0" />
                            </font>

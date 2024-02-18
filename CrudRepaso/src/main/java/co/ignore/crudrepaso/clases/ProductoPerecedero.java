@@ -9,8 +9,8 @@ public class ProductoPerecedero extends Producto{
     private LocalDate fechaVencimiento;
 
     //metodo constructor con sper class de producto
-    public ProductoPerecedero(String codigo, String nombre, String descripcion, Integer valorUnitario, Integer cantExistente, LocalDate fechaVencimiento) {
-        super(codigo, nombre, descripcion, valorUnitario, cantExistente);
+    public ProductoPerecedero(String codigo, String nombre, String descripcion, Integer valorUnitario, Integer cantExistente, LocalDate fechaVencimiento, String tipoProducto) {
+        super(codigo, nombre, descripcion, valorUnitario, cantExistente, tipoProducto);
         this.fechaVencimiento = fechaVencimiento;
     }
 

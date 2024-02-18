@@ -1,5 +1,7 @@
 package co.ignore.crudrepaso.clases;
 
+import java.time.LocalDate;
+
 public class Producto {
 
     //declaracion variables
@@ -9,17 +11,29 @@ public class Producto {
     private String descripcion;
     private Integer valorUnitario;
     private Integer cantExistente;
+    private String tipoProducto;
 
     //metodo constructor
-    public Producto(String codigo, String nombre, String descripcion, Integer valorUnitario, Integer cantExistente) {
+    public Producto(String codigo, String nombre, String descripcion, Integer valorUnitario, Integer cantExistente, String tipoProducto) {
         this.codigo = codigo;
         this.nombre = nombre;
         this.descripcion = descripcion;
         this.valorUnitario = valorUnitario;
         this.cantExistente = cantExistente;
+        this.tipoProducto = tipoProducto;
+
+
     }
 
     //getter y setters
+
+    public String getTipoProducto() {
+        return tipoProducto;
+    }
+
+    public void setTipoProducto(String tipoProducto) {
+        this.tipoProducto = tipoProducto;
+    }
 
     public String getCodigo() {
         return codigo;
@@ -60,4 +74,6 @@ public class Producto {
     public void setCantExistente(Integer cantExistente) {
         this.cantExistente = cantExistente;
     }
+
+
 }
