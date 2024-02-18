@@ -1,10 +1,13 @@
 package co.ignore.crudrepaso.controller;
 
 import co.ignore.crudrepaso.clases.*;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javax.swing.JOptionPane;
 
 import java.time.LocalDate;
 
@@ -27,27 +30,6 @@ public class ClienteView {
 
     @FXML
     private Button deleteCliente;
-
-    @FXML
-    private Button deleteEnva;
-
-    @FXML
-    private Button deletePere;
-
-    @FXML
-    private Button deleteRefri;
-
-    @FXML
-    private Button editCliente;
-
-    @FXML
-    private Button editEnva;
-
-    @FXML
-    private Button editPere;
-
-    @FXML
-    private Button editRefri;
 
     @FXML
     private TextField inApellido;
@@ -205,7 +187,19 @@ public class ClienteView {
     private TableColumn<TableProducto, Integer> inPesoEnvaTable;
     @FXML
     private TableColumn<TableProducto, String> inPaisEnvaTable;
+    @FXML
+    private TextField inIdenSeleCliente;
+    @FXML
+    private TextField inCodSeleProducto;
+    @FXML
+    private TextField inNomSeleCliente;
+    @FXML
+    private TextField inNomSeleProducto;
+    private String identificacion;
+    private String codigo = "";
 
+    Cliente clienteSeleccionado = new Cliente();
+    TableProducto productoSeleccionado = new TableProducto();
 
     @FXML
     void asignarArgentina(ActionEvent event) {
@@ -355,14 +349,69 @@ public class ClienteView {
         inFeEnvaTable.setCellValueFactory(new PropertyValueFactory<TableProducto, LocalDate>("fechaEnvasado"));
         inPaisEnvaTable.setCellValueFactory(new PropertyValueFactory<TableProducto, String>("pais"));
         tableProductoView.getItems().addAll(tableProducto);
-        //inCodEnva.clear();
-        //inNomEnva.clear();
-        //inDesEnva.clear();
-        //inValEnva.clear();
-        //inCantEnva.clear();
-        //inPesoEnva.clear();
-        //inFechaEnva.setValue(null);
-        //inPaisEnva.setText("Seleccione");
+        inCodEnva.clear();
+        inNomEnva.clear();
+        inDesEnva.clear();
+        inValEnva.clear();
+        inCantEnva.clear();
+        inPesoEnva.clear();
+        inFechaEnva.setValue(null);
+        inPaisEnva.setText("Seleccione");
+
+    }
+
+   @FXML
+   private void initialize(){
+        listenerPosicionCliente();
+        listenerPosicionProducto();
+
+   }
+
+    private void listenerPosicionCliente(){
+        tableCliente.getSelectionModel().selectedItemProperty().addListener((obs, oldSelection, newSelection) -> {
+            clienteSeleccionado = newSelection;
+            if(clienteSeleccionado!=null) {
+                identificacion = clienteSeleccionado.getIdentificacion();
+                codigo = "";
+            }
+        });
+    }
+
+    private void listenerPosicionProducto(){
+
+        tableProductoView.getSelectionModel().selectedItemProperty().addListener((obs, oldSelection, newSelection) -> {
+            productoSeleccionado = newSelection;
+            if(productoSeleccionado!=null) {
+                identificacion = "";
+                codigo = productoSeleccionado.getCodigo();
+            }
+        });
+
+    }
+
+
+    @FXML
+    void eliminarEvento(ActionEvent event) {
+
+        if(identificacion != ""){
+            ObservableList<Cliente> nombre= FXCollections.observableArrayList();
+            nombre.addAll(tableCliente.getItems());
+            Cliente cliente = nombre.stream().filter(cliente1 -> cliente1.getIdentificacion().equals(identificacion)).findAny().get();
+            nombre.remove(cliente);
+            tableCliente.setItems(nombre);
+            tableCliente.refresh();
+        } else if (codigo != "") {
+            ObservableList<TableProducto> codigo1= FXCollections.observableArrayList();
+            codigo1.addAll(tableProductoView.getItems());
+            TableProducto tableProducto = codigo1.stream().filter(tableProducto1 -> tableProducto1.getCodigo().equals(codigo)).findAny().get();
+            codigo1.remove(tableProducto);
+            tableProductoView.setItems(codigo1);
+            tableProductoView.refresh();
+        }else {
+            JOptionPane.showConfirmDialog(null, "Seleccione un elemento de cualquier lista");
+
+        }
+
 
     }
 }

@@ -20,6 +20,9 @@ public class Cliente {
     // Metodo constructor
 
 
+    public Cliente() {
+    }
+
     public Cliente(String nombre, String apellido, String identificacion, String direccion, String telefono, String email, LocalDate fechaNacimiento, String tipoCliente) {
         this.nombre = nombre;
         this.apellido = apellido;

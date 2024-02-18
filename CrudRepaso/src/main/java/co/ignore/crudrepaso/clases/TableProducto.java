@@ -17,6 +17,10 @@ public class TableProducto {
     private String codigoAprovacion;
     private String temperaturaRefrigeracion;
 
+
+    public TableProducto() {
+    }
+
     public TableProducto(String codigo, String nombre, String descripcion, Integer valorUnitario, Integer cantExistente,
                          String tipoProducto, LocalDate fechaEnvasado, Integer peso, String pais,
                          LocalDate fechaVencimiento, String codigoAprovacion, String temperaturaRefrigeracion) {

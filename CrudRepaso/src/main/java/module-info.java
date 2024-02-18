@@ -1,6 +1,7 @@
 module co.ignore.crudrepaso {
     requires javafx.controls;
     requires javafx.fxml;
+    requires java.desktop;
 
 
     opens co.ignore.crudrepaso to javafx.fxml;
