@@ -241,6 +241,7 @@ public class ClienteView {
     void asignarEcuador(ActionEvent event) {
         if (inEcuEnva.getText().equals("Ecuador")){
             inPaisEnva.setText("Ecuador");
+
         }
 
     }
